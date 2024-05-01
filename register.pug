@@ -1,0 +1,37 @@
+doctype html
+html
+    head
+        title Register
+        link(rel="stylesheet", href="styles.css")
+    body(style="background-color:lavender")
+        h1(style="text-align:center;") Registration Page 🚀
+        hr(style="border-color:white;")
+
+        form(action="http://localhost:3000/auth/register", method="POST")
+            div.formContent(style="justify-content: flex; text-align:center;")
+                h2 Register for an account below 🌞🌟
+
+                if error
+                    p(style="color: red;") #{error}
+                
+                if success
+                    p(style="color: green;") #{success}
+
+                h4 📧 Email:
+                    span
+                        input(type="email", name="email", placeholder="email...")
+
+                h4 👤 Name:
+                    span
+                        input(type="text", name="name", placeholder="name...")
+
+                h4 🔐 Password:
+                    span
+                        input(type="password", name="password", placeholder="password...")
+
+                h4 🔐 Confirm Password:
+                    span
+                        input(type="password", placeholder="confirm password...")
+
+                br
+                button(type="submit") Register
