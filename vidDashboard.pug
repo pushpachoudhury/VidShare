@@ -1,0 +1,35 @@
+doctype html
+html
+    head 
+        title Video Dashboard
+    body(style="background-color:lightpink;")
+        h1(style="text-align:center;") Video Dashboard 🎥
+        hr
+        
+        
+        form(id="filterForm" method="get")
+            label(for="videofilter") Select Video Filter:
+            select(name="videofilter" id="videofilter" onchange="changeFilter(this.value)")
+                option(value="all") Choose One...
+                option(value="all") All
+                option(value="mine") My Videos
+            button(type="submit") Apply Filter
+        hr
+        
+        each video in videos
+            // Render each video thumbnail here
+            p= video.title 
+            p= video.videoURL 
+            hr
+
+        button 
+            a(href="/video/new_video") Share a New Video
+
+    script.
+        function changeFilter(value) {
+            if (value === 'all') {
+                document.getElementById('filterForm').action = '/video/dashboard/all';
+            } else if (value === 'mine') {
+                document.getElementById('filterForm').action = '/video/dashboard/mine';
+            }
+        }
