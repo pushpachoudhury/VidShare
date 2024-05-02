@@ -1,7 +1,23 @@
 doctype html 
 html
     head 
-        title Share Video 
-    body("style"="background-color:rosybrown;")
-        h1("style"="text-align:center;") Share Video ‼️
+        title Share New Video
+    body("style"="background-color:cadetblue;")
+        h1("style"="text-align:center;") Share New Video 🎬
         hr
+
+        form(action="/video/new" method="post")
+            div(style="justify-content:flex; text-align:center;")
+                label(for="videoURL") Video URL: 
+                input(type="text" id="videoURL" name="videoURL" placeholder="url...")
+                br
+                label(for="title") Title: 
+                input(type="text" id="title" name="title" placeholder="title...")
+                br
+                input(type="submit" value="Add Video")
+        if error
+            p.error= error
+        if success
+            p.success= success
+        div(style="text-align:center;")
+            a(href="/video/dashboard/all") Go to Video Dashboard
