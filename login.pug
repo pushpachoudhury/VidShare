@@ -8,10 +8,13 @@ html
         hr
         form(action='/auth/login', method='POST')
             div(style="justify-content:flex; text-align:center;")
-                h4 📫 Email
+                h4 📫 Email 
                     span
                         input(type="email", name="email", placeholder="email...") 
-                h4 🔐 Password
+                h4 🔐 Password 
                     span
                         input(type="password", name="password", placeholder="password...") 
                 button(type="submit") Log In
+        div("style"="text-align:center;")
+            if error
+            p.error= error
